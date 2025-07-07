@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+</head>
+
+<body>
+    <div id="image-container">
+    </div>
+
+    <script>
+        const imageList = [
+            { src: 'https://d3rftsiup4wf15.cloudfront.net/uploads/thumb/2025/07/07/anh1.webp', caption: 'Ảnh 1' },
+            { src: 'https://d3rftsiup4wf15.cloudfront.net/uploads/thumb/2025/07/07/anhfdg2.webp', caption: 'Ảnh 2' },
+            { src: 'https://d3rftsiup4wf15.cloudfront.net/uploads/thumb/2025/07/07/anh3.webp', caption: 'Ảnh 3' }
+        ];
+
+        const container = document.getElementById('image-container');
+
+        for (let i = 0; i < imageList.length; i++) {
+            const figure = document.createElement('figure');
+            figure.classList.add('bao-anh');  // tất cả figure đều có class bao-anh
+
+            const img = document.createElement('img');
+            img.src = imageList[i].src;
+            img.alt = imageList[i].caption;
+
+            const caption = document.createElement('figcaption');
+            // caption.innerText = imageList[i].caption;
+
+            figure.appendChild(img);
+            figure.appendChild(caption);
+            container.appendChild(figure);
+        }
+    </script>
+</body>
+
+</html>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .bao-anh {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+
+    #image-container {
+        background-color: #303030;
+        padding: 30px;
+    }
+
+    @media (max-width:768px) {
+        #image-container {
+            padding: 10px;
+            background-color: #303030;
+
+        }
+
+        .bao-anh img {
+            width: 100%;
+        }
+    }
+</style>
